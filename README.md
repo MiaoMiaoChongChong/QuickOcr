@@ -18,7 +18,7 @@
 
 ## 安装
 
-从 [Releases](../../releases) 下载 `QuickOcr-v1.0.0.apk` 安装。
+从 [Releases](https://github.com/MiaoMiaoChongChong/QuickOcr/releases) 下载 `QuickOcr-v1.0.0.apk` 安装。
 
 - 需要 **Android 11（API 30）及以上**
 - 首次使用请在应用内完成授权（见下）
