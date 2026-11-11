@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OCR快照</string>
+    <string name="a11y_desc">OCR快照 使用无障碍接口截取屏幕，仅用于你主动触发的框选识别；不读取界面文字、不监听输入、不上传任何数据。</string>
+</resources>

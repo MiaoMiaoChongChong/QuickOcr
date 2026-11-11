@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OCR快照"
+            android:textColor="#FFFFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="一、授权（各授权一次即可）"
+            android:textColor="#FF4F8CFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnA11y"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="12dp"
+            android:text="① 无障碍权限（推荐，一次授权长期有效）"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="在系统设置里开启「OCR快照」即可；若提示受限，先到应用信息 → 高级设置 → 允许受限制的设置。"
+            android:textColor="#FF888888"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:text="② 悬浮窗权限"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnProjection"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:text="③ 录屏权限（未开无障碍时的备用方案）"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="授权状态检查中…"
+            android:textColor="#FF8BC34A"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="二、识别入口（按需开关，可同时开）"
+            android:textColor="#FF4F8CFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnBall"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="12dp"
+            android:text="开启悬浮球"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnNotif"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:text="开启通知栏入口"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnTile"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:text="添加下拉磁贴"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="点上面按钮可把「OCR框选」加入控制中心快捷开关，是否加入由你在系统确认框里决定。"
+            android:textColor="#FF888888"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="三、识别设置"
+            android:textColor="#FF4F8CFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/cbLineBreak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="每行后换行（识别连续文章时可关掉，避免页面折行被当成段落）"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="5dp"
+            android:text="用法：点悬浮球或通知栏「截屏框选」→ 屏幕冻结 → 拖框选区（四边四角可调）→ 识别 → 勾选复制 → 关闭即回原应用。截屏后请保持本应用后台存活（建议在系统设置里允许自启动+省电无限制）。"
+            android:textColor="#FF888888"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>
