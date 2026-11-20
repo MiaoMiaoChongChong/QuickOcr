@@ -25,7 +25,7 @@ class ConsentActivity : AppCompatActivity() {
                 "hasProj=${ProjectionHolder.hasProjection()} a11y=$a11y"
         )
         if (ProjectionHolder.hasProjection() || a11y) {
-            BallService.capture(this)
+            EntryCoordinator.triggerCapture(applicationContext, delayMs = 650L, fromBall = false)
             finish()
             return
         }

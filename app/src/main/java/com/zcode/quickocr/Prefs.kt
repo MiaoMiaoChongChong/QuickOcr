@@ -21,8 +21,56 @@ import java.util.function.Consumer
 object Prefs {
     private const val NAME = "entry"
     private const val KEY_LINE_BREAK = "line_break_between_lines"
+    private const val KEY_BALL_ENABLED = "ball_enabled"
+    private const val KEY_NOTIF_ENABLED = "notif_enabled"
+    private const val KEY_CHAR_SELECT_MODE = "char_select_mode"
+    private const val KEY_HIGH_RES_OCR = "high_res_ocr"
+    private const val KEY_BALL_ON_RIGHT = "ball_on_right"
+    private const val KEY_BALL_Y_RATIO = "ball_y_ratio"
 
     private fun sp(c: Context) = c.getSharedPreferences(NAME, Context.MODE_PRIVATE)
+
+    /** 悬浮球开关，默认 true。 */
+    fun ballEnabled(c: Context): Boolean = sp(c).getBoolean(KEY_BALL_ENABLED, true)
+
+    fun setBallEnabled(c: Context, v: Boolean) {
+        sp(c).edit().putBoolean(KEY_BALL_ENABLED, v).apply()
+    }
+
+    /** 通知栏常驻入口开关，默认 true。 */
+    fun notifEnabled(c: Context): Boolean = sp(c).getBoolean(KEY_NOTIF_ENABLED, true)
+
+    fun setNotifEnabled(c: Context, v: Boolean) {
+        sp(c).edit().putBoolean(KEY_NOTIF_ENABLED, v).apply()
+    }
+
+    /** 结果面板默认模式：true=逐字选择，false=按行勾选。 */
+    fun charSelectMode(c: Context): Boolean = sp(c).getBoolean(KEY_CHAR_SELECT_MODE, true)
+
+    fun setCharSelectMode(c: Context, v: Boolean) {
+        sp(c).edit().putBoolean(KEY_CHAR_SELECT_MODE, v).apply()
+    }
+
+    /** 高精度识别（1080p），默认 false（720p）。 */
+    fun highResOcr(c: Context): Boolean = sp(c).getBoolean(KEY_HIGH_RES_OCR, false)
+
+    fun setHighResOcr(c: Context, v: Boolean) {
+        sp(c).edit().putBoolean(KEY_HIGH_RES_OCR, v).apply()
+    }
+
+    /** 悬浮球停靠侧：false=左侧，true=右侧。 */
+    fun ballOnRight(c: Context): Boolean = sp(c).getBoolean(KEY_BALL_ON_RIGHT, false)
+
+    fun setBallOnRight(c: Context, v: Boolean) {
+        sp(c).edit().putBoolean(KEY_BALL_ON_RIGHT, v).apply()
+    }
+
+    /** 悬浮球纵向位置比例（0f..1f）。 */
+    fun ballYRatio(c: Context): Float = sp(c).getFloat(KEY_BALL_Y_RATIO, 0.38f).coerceIn(0f, 1f)
+
+    fun setBallYRatio(c: Context, v: Float) {
+        sp(c).edit().putFloat(KEY_BALL_Y_RATIO, v.coerceIn(0f, 1f)).apply()
+    }
 
     /** 复制多行时每行之间是否插入换行符，默认 true（保持原有行为）。 */
     fun lineBreak(c: Context): Boolean = sp(c).getBoolean(KEY_LINE_BREAK, true)

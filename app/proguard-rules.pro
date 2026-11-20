@@ -1,0 +1,3 @@
+-keep class com.equationl.** { *; }
+-keepclassmembers class android.graphics.Point { *; }
+-keepattributes Signature,InnerClasses,EnclosingMethod

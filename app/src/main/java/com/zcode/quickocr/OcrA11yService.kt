@@ -6,6 +6,8 @@ import android.content.ComponentName
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import android.view.Display
@@ -67,7 +69,12 @@ class OcrA11yService : AccessibilityService() {
         instance = this
         // 系统在用户打开服务详情时也会临时 bind 来读配置，此刻 connected=true
         // 并不代表已启用，必须用 enabled list 复核，日志里一并打出结果。
-        Log.i(TAG, "QOCR a11y bound, enabledInSettings=${isEnabled(this)}")
+        val enabled = isEnabled(this)
+        Log.i(TAG, "QOCR a11y bound, enabledInSettings=$enabled")
+        if (enabled) {
+            // 系统自动重启绑定无障碍后，无需前台服务即可恢复悬浮球并清理冗余通知
+            Handler(Looper.getMainLooper()).post { EntryCoordinator.sync(applicationContext) }
+        }
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {}
